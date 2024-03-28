@@ -1,16 +1,35 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Formulario = () => {
-    let [materiaA, setMateriaA] = useState(0);
-    let [materiaB, setMateriaB] = useState(0);
-    let [materiaC, setMateriaC] = useState(0);
-    let [nome, setNome] = useState('');
+    const [materiaA, setMateriaA] = useState(0);
+    const [materiaB, setMateriaB] = useState(0);
+    const [materiaC, setMateriaC] = useState(0);
+    const [nome, setNome] = useState('');
+
+    //mount = quando é montado
+    //update = quando é atualizado
+    //onmount = quando é desmontado
+
+    useEffect(() => {
+        console.log("O componente iniciou");
+
+        return () => {
+            console.log("O componente finalizou");
+        }
+    }, []);
+
+    useEffect(() => {
+        console.log("O estado nome mudou");
+    }, [nome]);
+
+    useEffect(() => {
+        console.log("Materia A mudou para: " + materiaA);
+    }, [materiaA, materiaB, materiaC]);
 
     const alteraNome = (evento) => {
-        // console.log(evento.target.value)
         // setNome(evento.target.value);
+        // eslint-disable-next-line no-unused-vars
         setNome(estadoAnterior => {
-            console.log(estadoAnterior);
 
             return evento.target.value;
         })
@@ -19,9 +38,6 @@ const Formulario = () => {
     const renderizaResultado = () => { 
         const soma = materiaA + materiaB + materiaC;
         const media = soma / 3;
-
-        console.log(soma)
-        console.log(media)
 
         if (media >= 7) {
             return (
@@ -36,6 +52,12 @@ const Formulario = () => {
 
     return (
         <form>
+            {[1, 2, 3, 4, 5].map(item => (
+                <>
+                <li key={item}>{item}</li>
+                </>
+            ))}
+
             <input type="text" placeholder="Seu nome" onChange={alteraNome} />
             <input type="number" placeholder="Nota matéria A" onChange={evento => setMateriaA(parseInt(evento.target.value))} />
             <input type="number" placeholder="Nota matéria B" onChange={evento => setMateriaB(parseInt(evento.target.value))}/>
