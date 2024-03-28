@@ -4,11 +4,35 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+.div {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+}
 
 .container {
     max-width: 960px;
     width: 100%;
     margin: 0 auto;
+}
+
+.input {
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #000;
+    border-radius: 8px;
+    font-size: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255,1.0);
+
+    &:focus {
+        outline: none;
+        border-color: var(--corPrincipal);
+        box-shadow: 0 0 10px rgba(63, 219, 247, 0.8);
+    }
 }
 
 :root {

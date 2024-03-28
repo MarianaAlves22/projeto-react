@@ -11,8 +11,8 @@ function App() {
   const [nomeUsuario, setNomeUsuario ] = useState('');
 
   return (
-    <>
-      <input type="text" onBlur={(e) => setNomeUsuario(e.target.value)} />
+    <div className="div">
+      <input className="input" type="text" placeholder="Digite aqui o nome do usuário" onBlur={(e) => setNomeUsuario(e.target.value)} />
 
     {nomeUsuario.length > 4 && (
       <>
@@ -26,7 +26,7 @@ function App() {
     )}
 
       <button onClick={() => setFormularioEstaVisivel(!formularioEstaVisivel)} type="button">toggle form</button> */}
-    </>
+    </div>
   )
 }
 

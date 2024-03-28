@@ -24,3 +24,8 @@
     padding: 8px;
     text-decoration: none;
 }
+
+.mensagemErro {
+    font-size: 20px;
+    font-weight: bold;
+}
